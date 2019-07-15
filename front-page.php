@@ -1,7 +1,7 @@
 <?php get_header(); ?>   
 
-<div class="wrap">
-	<?php if (have_posts()) : ?><?php while (have_posts()) : the_post(); ?><div id="theGrid" class="entry main">
+<main class="wrap">
+	<?php if (have_posts()) : ?><?php while (have_posts()) : the_post(); ?><div class="entry inner-wrapper">
 			<?php the_content('Read the rest of this entry &raquo;'); ?>
 	</div><!--end .entry--><?php endwhile; ?>
 
@@ -18,6 +18,6 @@
 
 	<?php endif; ?>
 
-</div><!--end .wrap-->
+</main><!--end main.wrap-->
 
 <?php get_footer(); ?>

@@ -6,7 +6,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="https://fonts.googleapis.com/css?family=Heebo:300,400|Open+Sans:300,400|Playfair+Display|Quicksand:300,400,500|Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Heebo:400,500,600,700|Playfair+Display|Quicksand:400,500,600,700" rel="stylesheet">
 
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
@@ -30,7 +30,7 @@
 
 <body <?php body_class(); ?>>
 
-	<div id="header">
+	<header>
 
 		<div class="headerinfo">
 			<a href="<?php echo get_option('home'); ?>">
@@ -50,8 +50,8 @@
 
 			<nav>  
 				<!--hamburger menu-->
-				<a class="header-nav-title" tabindex="0" role="button" aria-label="headernav">
-					<div id="nav-icon3">
+				<a class="nav-hamburger" tabindex="0" role="button" aria-label="headernav">
+					<div class="nav-icon3">
 					  <span></span>
 					  <span></span>
 					  <span></span>
@@ -69,4 +69,4 @@
 
 		</div><!--end .headerinfo-->
 
-	</div><!--end #header-->
+	</header>

@@ -2,7 +2,7 @@
 // this code reads each section as its own URL and will show that section, while hiding the rest
 
 window.onload = function() {
-    var hash = window.location.hash; // would be "#div1" or something
+    var hash = window.location.hash;
     if(hash != "") {
         var id = hash.substr(1); // get rid of #
 		
@@ -18,17 +18,19 @@ var $j = jQuery.noConflict();
 
 $j(document).ready(function (){
 	
-	// Smooth Scroll to anchor element
+    // Smooth Scroll to anchor element
 	var smoothScroll = function(e) {
 		e.preventDefault();
 		var target = this.hash,
 		$target = $j(target);
 
-		$j('html, body').stop().animate({
-			'scrollTop': $target.offset().top
+		$j('html, body').animate({
+			scrollTop: $target.offset().top
 		}, 900, 'swing', function () {
 			window.location.hash = target;
 		});
+        
+        return false;
 	}
     
     $j('a[href^="#"]').click(smoothScroll);
@@ -36,7 +38,7 @@ $j(document).ready(function (){
 		event.preventDefault();
 		if (event.which == 13) smoothScroll();
 	});
-	
+
 	// show/hide div (for Single Instructor Module pages)
 	var moduleMenu = function() {
 		$j('.targetDiv').hide();
@@ -51,14 +53,13 @@ $j(document).ready(function (){
 	});
 	
 	// toggle hamburger menu for smaller screen sizes
-	var windowWidth = $j(window).width();
 	var hamburgerMenu = function() {
-		$j('#nav-icon3').toggleClass('open');
-        $j('#menu-header-menu').slideToggle(600, 'swing');
+		$j('.nav-icon3').toggleClass('open');
+        $j('.header-menu-class').slideToggle(600, 'swing');
 	}
 	
-	$j('.header-nav-title').click(hamburgerMenu);
-	$j('.header-nav-title').keypress(function(event) {
+	$j('.nav-hamburger').click(hamburgerMenu);
+	$j('.nav-hamburger').keypress(function(event) {
 		if (event.which == 13) hamburgerMenu();
 	});
 	

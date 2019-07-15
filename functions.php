@@ -32,10 +32,7 @@
     function register_my_menus() {
         register_nav_menus(
             array(
-                'header-menu' => __( 'Header Menu' ),
-                'about-page-menu' => __( 'About Page Menu' ),
-                'modules-page-menu' => __( 'Modules Page Menu '),
-                'resources-page-menu' => __( 'Resources Page Menu' )
+                'header-menu' => __( 'Header Menu' )
             )
         );
     }
@@ -82,18 +79,18 @@
 	// generates breadcrumbs, from http://wp-functions.com/seo-functions/seo-breadcrumb-function/
 	function the_breadcrumb() {
 		global $post;
-		echo '<p id="breadcrumbs">';
+		echo '<p class="breadcrumbs">';
 		if (!is_home()) {
 			echo '<a href="';
 			echo home_url();
 			echo '" title="Homepage">';
 			echo 'Home';
-			echo '</a> > ';
+			echo '</a> <i class="fa fa-angle-right"></i> ';
 			if (is_category() || is_single()) {
 				echo '';
-				the_category(' > ');
+				the_category(' <i class="fa fa-angle-right"></i> ');
 				if (is_single()) {
-					echo ' > ';
+					echo ' <i class="fa fa-angle-right"></i> ';
 					the_title();
 					echo '';
 				}
@@ -102,10 +99,10 @@
 					$anc = get_post_ancestors( $post->ID );
 					$title = get_the_title();
 					foreach ( $anc as $ancestor ) {
-						$output = '<a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a> >';
+						$output = '<a href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a> ';
 					}
 					echo $output;
-					echo '<span title="'.$title.'"> '.$title.'</span>';
+					echo '<span title="'.$title.'"> <i class="fa fa-angle-right"></i> '.$title.'</span>';
 				} else {
 					echo get_the_title();
 				}
